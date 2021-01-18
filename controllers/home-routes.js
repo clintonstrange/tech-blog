@@ -5,7 +5,7 @@ const { Post, User, Comment } = require("../models");
 router.get("/", (req, res) => {
   console.log("======================");
   Post.findAll({
-    attributes: ["id", "post_url", "title", "created_at"],
+    attributes: ["id", "contents", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 
       res.render("homepage", {
         posts,
-        // loggedIn: req.session.loggedIn,
+        signedIn: req.session.signedIn,
       });
     })
     .catch((err) => {
@@ -41,7 +41,7 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "post_url", "title", "created_at"],
+    attributes: ["id", "contents", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -67,7 +67,7 @@ router.get("/post/:id", (req, res) => {
 
       res.render("single-post", {
         post,
-        // loggedIn: req.session.loggedIn,
+        signedIn: req.session.signedIn,
       });
     })
     .catch((err) => {
@@ -76,14 +76,24 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
-// get login view
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
+// get sign-up view
+router.get("/sign-in-prompt", (req, res) => {
+  res.render("sign-in-prompt");
+});
+
+// get sign in view
+router.get("/sign-in", (req, res) => {
+  if (req.session.signedIn) {
     res.redirect("/");
     return;
   }
 
-  res.render("login");
+  res.render("sign-in");
+});
+
+// get sign-up view
+router.get("/sign-up", (req, res) => {
+  res.render("sign-up");
 });
 
 module.exports = router;

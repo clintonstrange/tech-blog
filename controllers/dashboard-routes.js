@@ -10,7 +10,7 @@ router.get("/", withAuth, (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ["id", "post_url", "title", "created_at"],
+    attributes: ["id", "contents", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -28,7 +28,7 @@ router.get("/", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("dashboard", { posts, loggedIn: true });
+      res.render("dashboard", { posts, signedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -38,7 +38,7 @@ router.get("/", withAuth, (req, res) => {
 
 router.get("/edit/:id", withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
-    attributes: ["id", "post_url", "title", "created_at"],
+    attributes: ["id", "contents", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -60,7 +60,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
 
         res.render("edit-post", {
           post,
-          loggedIn: true,
+          signedIn: true,
         });
       } else {
         res.status(404).end();

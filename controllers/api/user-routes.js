@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "title", "post_url", "created_at"],
+        attributes: ["id", "title", "contents", "created_at"],
       },
       {
         model: Comment,
@@ -52,14 +52,13 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
-    email: req.body.email,
     password: req.body.password,
   })
     .then((dbUserData) => {
-      res.session.save(() => {
+      req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
-        req.session.loggedIn = true;
+        req.session.signedIn = true;
 
         res.json(dbUserData);
       });
@@ -70,17 +69,15 @@ router.post("/", (req, res) => {
     });
 });
 
-// post/create via login
-router.post("/login", (req, res) => {
+// post/create via sign in
+router.post("/sign-in", (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email,
+      username: req.body.username,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: "No user found with that email address." });
+      res.status(400).json({ message: "No user found with that username." });
       return;
     }
     const validPassword = dbUserData.checkPassword(req.body.password);
@@ -93,16 +90,16 @@ router.post("/login", (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
+      req.session.signedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in." });
+      res.json({ user: dbUserData, message: "You are now signed in." });
     });
   });
 });
 
-// post/create via logout
-router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
+// post/create via sign out
+router.post("/sign-out", (req, res) => {
+  if (req.session.signedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });

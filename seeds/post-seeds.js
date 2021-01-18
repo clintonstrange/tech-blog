@@ -2,106 +2,123 @@ const { Post } = require("../models");
 
 const postdata = [
   {
-    title: "Test Post Title 1.",
-    post_url: "https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png",
+    title: "Test Post Title 1",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker",
     user_id: 10,
   },
   {
-    title: "Test Post Title 2.",
-    post_url: "https://nasa.gov/donec.json",
+    title: "Test Post Title 2",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 8,
   },
   {
-    title: "Test Post Title 3.",
-    post_url:
-      "https://europa.eu/parturient/montes/nascetur/ridiculus/mus/etiam/vel.aspx",
+    title: "Test Post Title 3",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 1,
   },
   {
-    title: "Test Post Title 4.",
-    post_url: "http://desdev.cn/enim/blandit/mi.jpg",
+    title: "Test Post Title 4",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 4,
   },
   {
-    title: "Test Post Title 5.",
-    post_url: "http://google.ca/nam/nulla/integer.aspx",
+    title: "Test Post Title 5",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 7,
   },
   {
-    title: "Test Post Title 6.",
-    post_url: "https://stanford.edu/consequat.png",
+    title: "Test Post Title 6",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 4,
   },
   {
-    title: "Test Post Title 7.",
-    post_url: "http://edublogs.org/non/ligula/pellentesque.js",
+    title: "Test Post Title 7",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 1,
   },
   {
-    title: "Test Post Title 8.",
-    post_url: "http://ucla.edu/consequat/nulla.html",
+    title: "Test Post Title 8",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 1,
   },
   {
-    title: "Test Post Title 9.",
-    post_url: "http://theguardian.com/dui/vel/nisl/duis/ac/nibh.aspx",
+    title: "Test Post Title 9",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 9,
   },
   {
-    title: "Test Post Title 10.",
-    post_url: "https://reverbnation.com/ligula/sit.jpg",
+    title: "Test Post Title 10",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 5,
   },
   {
-    title: "Test Post Title 11.",
-    post_url: "http://china.com.cn/lectus/vestibulum.json",
+    title: "Test Post Title 11",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 3,
   },
   {
-    title: "Test Post Title 12.",
-    post_url:
-      "http://networksolutions.com/nam/ultrices/libero/non/mattis/pulvinar.json",
+    title: "Test Post Title 12",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 10,
   },
   {
-    title: "Test Post Title 13.",
-    post_url: "https://instagram.com/ac/neque/duis/bibendum/morbi/non.xml",
+    title: "Test Post Title 13",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 8,
   },
   {
-    title: "Test Post Title 14.",
-    post_url: "https://lycos.com/natoque/penatibus/et.html",
+    title: "Test Post Title 14",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 3,
   },
   {
-    title: "Test Post Title 15.",
-    post_url: "https://gmpg.org/lorem.jpg",
+    title: "Test Post Title 15",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 3,
   },
   {
-    title: "Test Post Title 16.",
-    post_url: "https://paginegialle.it/mattis/egestas.jsp",
+    title: "Test Post Title 16",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 7,
   },
   {
-    title: "Test Post Title 17.",
-    post_url: "http://wikia.com/turpis/eget.jpg",
+    title: "Test Post Title 17",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 6,
   },
   {
-    title: "Test Post Title 18.",
-    post_url: "https://shareasale.com/quis.json",
+    title: "Test Post Title 18",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 4,
   },
   {
-    title: "Test Post Title 19.",
-    post_url:
-      "http://java.com/diam/neque/vestibulum/eget/vulputate/ut/ultrices.png",
+    title: "Test Post Title 19",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 6,
   },
   {
-    title: "Test Post Title 20.",
-    post_url: "https://java.com/at/nibh/in.png",
+    title: "Test Post Title 20",
+    contents:
+      "Heave down list rum poop deck line topmast schooner pinnace pink spanker.",
     user_id: 7,
   },
 ];
