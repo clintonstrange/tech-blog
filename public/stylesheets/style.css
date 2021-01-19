@@ -1,0 +1,12 @@
+body {
+  background: gainsboro;
+}
+
+#blog-title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+ol li {
+  list-style: none;
+}

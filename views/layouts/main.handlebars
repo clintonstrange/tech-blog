@@ -10,54 +10,54 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <nav class="navbar">
-                <div class="navbar-brand">
-                    <h1>
-                        <a class="navbar-item" href="/">
-                            <strong>Clint's Tech Blog</strong>
-                        </a>
-                    </h1>
+    <header>
+        <nav class="navbar has-background-link">
+            <div class="navbar-brand">
+                <h1>
+                    <a class="navbar-item has-text-light" href="/" id="blog-title">
+                        Clint's Tech Blog
+                    </a>
+                </h1>
 
-                    {{#if signedIn}}
-                    <div id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="/">Home</a>
-                            <a class="navbar-item" href="/dashboard">Dashboard</a>
-                        </div>
-                        <div class="navbar-end">
-                            <button id="sign-out" class="navbar-item button is-danger">Log Out</button>
-                        </div>
+                {{#if signedIn}}
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-light" href="/">Home</a>
+                        <a class="navbar-item has-text-light" href="/dashboard">Dashboard</a>
                     </div>
-                    {{else}}
-                    <div id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="/">Home</a>
-                            <a class="navbar-item" href="/sign-in-prompt">Dashboard</a>
-                        </div>
-
-                        {{#if firstTime}}
-                        <div class="navbar-end">
-                            <a class="navbar-item" href="/sign-in-prompt">Sign In</a>
-                        </div>
-                        {{else}}
-                        <div class="navbar-end">
-                            <a class="navbar-item" href="/sign-in">Sign In</a>
-                        </div>
-                        {{/if}}
-                        {{/if}}
+                    <div class="navbar-end">
+                        <button id="sign-out" class="navbar-item button is-danger has-text-light">Log Out</button>
                     </div>
                 </div>
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            Thanks for visiting Clint's Tech Blog!
-        </footer>
-    </div>
+                {{else}}
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-light" href="/">Home</a>
+                        <a class="navbar-item has-text-light" href="/sign-in-prompt">Dashboard</a>
+                    </div>
+
+                    {{#if firstTime}}
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-light" href="/sign-in-prompt">Sign In</a>
+                    </div>
+                    {{else}}
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-light" href="/sign-in">Sign In</a>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer class="columns">
+        <div class="column is-4 is-offset-4">
+            <p class="has-text-link">Thanks for visiting Clint's Tech Blog!</p>
+        </div>
+    </footer>
 
     {{#if signedIn}}
     <script src="/javascript/sign-out.js"></script>
