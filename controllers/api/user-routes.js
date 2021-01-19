@@ -91,6 +91,13 @@ router.post("/sign-in", (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.signedIn = true;
+      if (req.session.countVisit) {
+        req.session.CountVisit++;
+        req.session.firstTime = false;
+      } else {
+        req.session.countVisit = 1;
+        req.session.firstTime = true;
+      }
 
       res.json({ user: dbUserData, message: "You are now signed in." });
     });

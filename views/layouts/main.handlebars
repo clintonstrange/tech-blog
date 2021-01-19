@@ -5,25 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clint's Tech Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <h1>
-                <a href="/">Clint's Tech Blog</a>
-            </h1>
-            <nav>
-                {{#if signedIn}}
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                <button id="sign-out" class="btn-no-style">Sign Out</button>
-                {{else}}
-                <a href="/">Home</a>
-                <a href="/sign-in-prompt">Dashboard</a>
-                <a href="/sign-in-prompt">Sign In</a>
-                {{/if}}
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <h1>
+                        <a class="navbar-item" href="/">
+                            <strong>Clint's Tech Blog</strong>
+                        </a>
+                    </h1>
+
+                    {{#if signedIn}}
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">Home</a>
+                            <a class="navbar-item" href="/dashboard">Dashboard</a>
+                        </div>
+                        <div class="navbar-end">
+                            <button id="sign-out" class="navbar-item button is-danger">Log Out</button>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">Home</a>
+                            <a class="navbar-item" href="/sign-in-prompt">Dashboard</a>
+                        </div>
+
+                        {{#if firstTime}}
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/sign-in-prompt">Sign In</a>
+                        </div>
+                        {{else}}
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/sign-in">Sign In</a>
+                        </div>
+                        {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
             </nav>
         </header>
         <main>
