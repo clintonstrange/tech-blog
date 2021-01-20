@@ -35,7 +35,7 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/edit/:id", withAuth, (req, res) => {
+router.get("/post/edit/:id", withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: ["id", "contents", "title", "created_at"],
     include: [
@@ -70,9 +70,52 @@ router.get("/edit/:id", withAuth, (req, res) => {
     });
 });
 
+// get/findOne post
+router.get("/post/:id", (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "contents", "title", "created_at"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+
+      const post = dbPostData.get({ plain: true });
+
+      res.render("dash-single-post", {
+        post,
+        signedIn: req.session.signedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // get add post view
-router.get("/add-post", (req, res) => {
-  res.render("add-post");
+router.get("/add-post", withAuth, (req, res) => {
+  res.render("add-post", {
+    signedIn: true,
+  });
 });
 
 module.exports = router;

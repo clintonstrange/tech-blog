@@ -1,16 +1,19 @@
-<button>
-    <a href="/dashboard/add-post"> Create a New Post</a>
-</button>
-{{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
-        </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
+<div class="columns">
+    <div class="column is-8 is-offset-2">
+        <button class="create-btn button is-primary is-light my-4">
+            <a href="/dashboard/add-post"> Create a New Post</a>
+        </button>
+        {{#if posts.length}}
+        <section>
+            <h2 class="dash-title has-text-primary has-text-weight-bold is-size-1 has-text-centered">Your Posts</h2>
+            <ol>
+                {{#each posts as |post|}}
+                <li>
+                    {{> dash-post-info post}}
+                </li>
+                {{/each}}
+            </ol>
+        </section>
+        {{/if}}
+    </div>
+</div>

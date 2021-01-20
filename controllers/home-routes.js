@@ -53,7 +53,7 @@ router.get("/post/:id", (req, res) => {
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["id", "username"],
       },
     ],
   })
@@ -64,11 +64,20 @@ router.get("/post/:id", (req, res) => {
       }
 
       const post = dbPostData.get({ plain: true });
+      console.log(post.user.id);
+      console.log(req.session.user_id);
 
-      res.render("single-post", {
-        post,
-        signedIn: req.session.signedIn,
-      });
+      if (post.user.id === req.session.user_id) {
+        res.render("dash-single-post", {
+          post,
+          signedIn: req.session.signedIn,
+        });
+      } else {
+        res.render("single-post", {
+          post,
+          signedIn: req.session.signedIn,
+        });
+      }
     })
     .catch((err) => {
       console.log(err);
