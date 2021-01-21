@@ -61,22 +61,20 @@ router.get("/post/:id", (req, res) => {
       if (!dbPostData) {
         res.status(404).json({ message: "No post found with this id" });
         return;
-      }
-
-      const post = dbPostData.get({ plain: true });
-      console.log(post.user.id);
-      console.log(req.session.user_id);
-
-      if (post.user.id === req.session.user_id) {
-        res.render("dash-single-post", {
-          post,
-          signedIn: req.session.signedIn,
-        });
       } else {
-        res.render("single-post", {
-          post,
-          signedIn: req.session.signedIn,
-        });
+        const post = dbPostData.get({ plain: true });
+        if (post.user.id === req.session.user_id) {
+          res.render("single-post", {
+            post,
+            signedIn: req.session.signedIn,
+            ownPost: true,
+          });
+        } else {
+          res.render("single-post", {
+            post,
+            signedIn: req.session.signedIn,
+          });
+        }
       }
     })
     .catch((err) => {

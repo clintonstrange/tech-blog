@@ -1,6 +1,13 @@
 <div class="mt-4">
     {{> post-info post }}
     {{#if signedIn}}
+    {{#if ownPost}}
+    <div class="edit-post my-4">
+        <p class="has-text-centered">
+            <a href="/dashboard/post/edit/{{post.id}}" class="edit-link has-text-centered">~ Edit Post ~</a>
+        </p>
+    </div>
+    {{/if}}
     <div class="columns">
         <div class="column is-4 is-offset-4">
             <form class="comment-form">
