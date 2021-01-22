@@ -44,7 +44,7 @@ This is a Content Management System Blog using Model-View-Controller structure t
 
   To test the application, be sure to create the database in mysql2 sourcing the schema.sql and from the command line enter "npm seeds" to initialize your test data. Start your server from the command line, by entering "npm start". When you see "Now listening" in the console, switch to your browser and go to "localhost:3001" to begin testing the site.
 
-  # SCREEN SHOT GOES HERE!!!!
+  ![Screen Shot 2021-01-21 at 7 22 07 PM (2)](https://user-images.githubusercontent.com/71712425/105433525-61d4a700-5c1f-11eb-9839-d1c81765bd9c.png)
 
   ## Questions
 
