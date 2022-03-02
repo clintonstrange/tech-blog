@@ -8,12 +8,15 @@ This is a Content Management System Blog using Model-View-Controller structure t
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
+- [Clint's Tech Blog](#clints-tech-blog)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Installation
 
@@ -21,7 +24,7 @@ This is a Content Management System Blog using Model-View-Controller structure t
 
   - npm
   - bcrypt
-  - connent-session-sequelize
+  - connect-session-sequelize
   - dotenv
   - express
   - express-handlebars
