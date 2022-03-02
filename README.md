@@ -35,7 +35,7 @@ This is a Content Management System Blog using Model-View-Controller structure t
 
   ## Usage
 
-  This application allos users to login or sign up and as a user you can create posts with tech news that interest you. You can read posts from other users and comment on those posts. You can manage your posts by commenting on them, editing them, or even deleting them. When finished, you can log-out or in time, if idle, the site will log you out automatically.
+  This application allows users to login or sign up and as a user you can create posts with tech news that interest you. You can read posts from other users and comment on those posts. You can manage your posts by commenting on them, editing them, or even deleting them. When finished, you can log-out or in time, if idle, the site will log you out automatically.
 
   ## License
 
